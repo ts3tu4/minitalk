@@ -1,11 +1,11 @@
-NAME = minitalk
+C_NAME = client
+S_NAME = server
 
-SRCS = client.c\
-		server.c
+C_SRCS = client.c
+S_SRCS = server.c
 
 CC = cc
-
-HEAD_FILE = minitalk.h
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = -I./include -I./libft -I./ft_printf
 LIBFT_DIR = libft
@@ -14,27 +14,27 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror
 
-OBJS = $(SRCS:.c=.o)
+C_OBJS = $(C_SRCS:.c=.o)
+S_OBJS = $(S_SRCS:.c=.o)
 
-all: $(NAME)
+all: $(C_NAME) $(S_NAME)
 
-$(NAME): $(OBJS)
+$(C_NAME) $(S_NAME): %: $(LIBFT_DIR) $(PRINTF_DIR)
 	$(MAKE) -C $(LIBFT_DIR)
 	$(MAKE) -C $(PRINTF_DIR)
-	cc -o $(NAME)  $(OBJS) $(LIBFT) $(PRINTF) $(INCLUDES)
+	cc -o $@ $($(basename $@)_OBJS) $(LIBFT) $(PRINTF) $(INCLUDES)
 
-$(OBJS): %.o: %.c $(HEAD_FILE)
+$(C_OBJS) $(S_OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
 clean:
-	rm -rf $(OBJS) $(OBJSDIR_DEBUG)
+	rm -rf $(C_OBJS) $(S_OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
 	$(MAKE) clean -C $(PRINTF_DIR)
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_DEBUG)
+	rm -rf $(S_NAME) $(S_NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(PRINTF_DIR)
 re:fclean all
