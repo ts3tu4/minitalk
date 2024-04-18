@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:39:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/02 17:51:36 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:22:10 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:53:49 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/07 16:14:43 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:22:13 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

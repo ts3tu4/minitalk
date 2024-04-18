@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 19:35:38 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/12 14:45:54 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:20:56 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

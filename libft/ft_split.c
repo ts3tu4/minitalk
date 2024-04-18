@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 17:52:33 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/06 15:59:17 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:21:06 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static size_t	sep_times(char const *s, char c)
 {

@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 00:00:46 by mnanke            #+#    #+#             */
-/*   Updated: 2023/01/28 18:18:20 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:21:32 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

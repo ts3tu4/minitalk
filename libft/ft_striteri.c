@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:37:02 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/02 17:35:57 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:21:23 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

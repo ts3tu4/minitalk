@@ -19,14 +19,16 @@ C_OBJS = $(C_SRCS:.c=.o)
 S_OBJS = $(S_SRCS:.c=.o)
 
 all: $(C_NAME) $(S_NAME)
-
-$(C_NAME) $(S_NAME): %: $(LIBFT_DIR) $(PRINTF_DIR)
-	$(MAKE) -C $(LIBFT_DIR)
-	$(MAKE) -C $(PRINTF_DIR)
-	cc -o $@ $($(basename $@)_OBJS) $(LIBFT) $(PRINTF) $(INCLUDES)
+$(C_NAME) $(S_NAME): %: %.o $(LIBFT) $(PRINTF)
+	cc -o $@ $< $(LIBFT) $(PRINTF) $(INCLUDES)
 
 $(C_OBJS) $(S_OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
+$(PRINTF):
+	$(MAKE) -C $(PRINTF_DIR)
 
 clean:
 	rm -rf $(C_OBJS) $(S_OBJS)
@@ -34,7 +36,7 @@ clean:
 	$(MAKE) clean -C $(PRINTF_DIR)
 
 fclean: clean
-	rm -rf $(S_NAME) $(S_NAME)
+	rm -rf $(S_NAME) $(C_NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(PRINTF_DIR)
 re:fclean all

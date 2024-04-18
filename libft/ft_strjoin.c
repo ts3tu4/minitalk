@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 14:21:18 by mnanke            #+#    #+#             */
-/*   Updated: 2023/01/31 14:17:03 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:21:28 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

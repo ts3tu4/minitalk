@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 23:20:00 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/14 19:02:16 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:22:19 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

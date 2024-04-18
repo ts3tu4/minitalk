@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:29:14 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/11 20:14:40 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:19:08 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_bzero(void *str, size_t n)
 {

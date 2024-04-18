@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 15:55:30 by mnanke            #+#    #+#             */
-/*   Updated: 2023/02/14 18:07:48 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:21:19 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strdup(const char *s1)
 {

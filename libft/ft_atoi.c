@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:28:34 by mnanke            #+#    #+#             */
-/*   Updated: 2023/06/06 17:28:47 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/18 16:19:01 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static int	is_sp(char str)
 {
