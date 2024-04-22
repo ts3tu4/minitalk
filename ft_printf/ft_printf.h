@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 13:41:25 by mnanke            #+#    #+#             */
-/*   Updated: 2023/03/07 13:14:00 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 07:00:30 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int		ft_putnbr(int n);
 int		ft_putnbr_sixteen(unsigned long int ap, int dest);
 int		ft_putnbr_unsigned(unsigned int ap);
 size_t	ft_strlen(const char *str);
+void	send_signal(int s_pid, char c);
 
 #endif

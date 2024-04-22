@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:36 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/18 19:22:15 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 07:20:52 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_error(int style)
 	if (style == INPUT_ERROR)
 		ft_printf("'./client [PID] [string]'");
 	if (style == PID_ERROR)
-		ft_printf("PID is worng, Please check again PID");
+		ft_printf("PID is wrong, Please check again PID");
 	if (style == KILL_ERROR)
 		ft_printf("Kill command error");
 	exit(EXIT_FAILURE);
@@ -29,20 +29,15 @@ void	send_signal(int s_pid, char c)
 	int	i;
 
 	i = 0;
-	while (i < CHAR_BIT)
+	while (i < 8)
 	{
 		if (c >> i & 1)
-		{
 			kill_sig = kill(s_pid, SIGUSR1);
-			ft_printf("1\n");
-		}
 		else
-		{
 			kill_sig = kill(s_pid, SIGUSR2);
-			ft_printf("0\n");
-		}
 		if (kill_sig == -1)
 			ft_error(KILL_ERROR);
+		usleep(500);
 		i++;
 	}
 }
