@@ -6,40 +6,24 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:31 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/18 19:50:54 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 06:58:31 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void printb(unsigned int v) 
-{
-  unsigned int mask = (int)1 << (sizeof(v) * CHAR_BIT - 1);
-  do putchar(mask & v ? '1' : '0');
-  while (mask >>= 1);
-}
-
 volatile sig_atomic_t	g_sig;
 
-void	outputipa(void)
+void	output_char(void)
 {
 	static int	i;
 	static int	c;
 
 	if (g_sig == SIGUSR1)
-	{
-		c = (c << 1) + 1;
-		printb(c);
-	}
-	else
-	{
-		c = (c << 1) + 0;
-		printb(c);
-	}
+		c |= (1 << i);
 	if (i == 7)
 	{
-		// write(1, &c, 1);
-		ft_printf("c:%d", c);
+		write(1, &c, 1);
 		i = 0;
 		c = 0;
 		return ;
@@ -62,8 +46,7 @@ int	main(void)
 	while (1)
 	{
 		pause();
-		outputipa();
-		ft_printf("while\n");
+		output_char();
 	}
 	return (0);
 }
