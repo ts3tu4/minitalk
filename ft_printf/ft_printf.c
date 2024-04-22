@@ -6,11 +6,11 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 13:19:17 by mnanke            #+#    #+#             */
-/*   Updated: 2023/03/06 15:53:50 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 07:29:37 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 int	distr_af_pc(const char input, va_list *ap)
 {
