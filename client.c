@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:36 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/23 14:43:51 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 19:26:21 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_error(int style)
 	if (style == INPUT_ERROR)
 		ft_printf("'./client [PID] [string]'");
 	if (style == PID_ERROR)
-		ft_printf("PID is wrong, Please check again PID");
+		ft_printf("PID is wrong, Please check again PID!");
 	if (style == KILL_ERROR)
 		ft_printf("Kill command error");
 	exit(EXIT_FAILURE);
