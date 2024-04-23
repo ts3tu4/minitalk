@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:36 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/23 07:20:52 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/23 14:43:51 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	send_signal(int s_pid, char c)
 			kill_sig = kill(s_pid, SIGUSR2);
 		if (kill_sig == -1)
 			ft_error(KILL_ERROR);
-		usleep(500);
+		usleep(250);
 		i++;
 	}
 }
