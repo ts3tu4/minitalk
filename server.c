@@ -6,47 +6,53 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:31 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/23 06:58:31 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/04/27 20:41:03 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-volatile sig_atomic_t	g_sig;
+t_global	g_state;
 
 void	output_char(void)
 {
-	static int	i;
-	static int	c;
+	char	temp_char;
 
-	if (g_sig == SIGUSR1)
-		c |= (1 << i);
-	if (i == 7)
+	if (g_state.bit_position == 8)
 	{
-		write(1, &c, 1);
-		i = 0;
-		c = 0;
-		return ;
+		temp_char = g_state.current_char;
+		write(1, &temp_char, 1);
+		g_state.bit_position = 0;
+		g_state.current_char = 0;
 	}
-	i++;
 }
 
-void	signal_handler(int signum)
+void	signal_handler(int signum, siginfo_t *info, void *context)
 {
-	g_sig = signum;
+	(void)context;
+	g_state.client_pid = info->si_pid;
+	if (signum == SIGUSR1)
+		g_state.current_char |= (1 << (7 - g_state.bit_position));
+	g_state.bit_position++;
+	if (g_state.bit_position == 8)
+		output_char();
+	if (g_state.client_pid != 0)
+		kill(g_state.client_pid, SIGUSR1);
 }
 
 int	main(void)
 {
+	struct sigaction	sa;
+
+	sa.sa_sigaction = signal_handler;
+	sa.sa_flags = SA_SIGINFO;
+	sigemptyset(&sa.sa_mask);
 	ft_printf("PID: %d\n", getpid());
-	if (signal(SIGUSR1, signal_handler) == SIG_ERR)
+	if (sigaction(SIGUSR1, &sa, NULL) == -1)
 		exit(EXIT_FAILURE);
-	if (signal(SIGUSR2, signal_handler) == SIG_ERR)
+	if (sigaction(SIGUSR2, &sa, NULL) == -1)
 		exit(EXIT_FAILURE);
 	while (1)
-	{
 		pause();
-		output_char();
-	}
 	return (0);
 }
