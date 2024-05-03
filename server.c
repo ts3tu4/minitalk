@@ -6,7 +6,7 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:31 by mnanke            #+#    #+#             */
-/*   Updated: 2024/04/27 20:41:03 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/05/04 08:20:30 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 t_global	g_state;
 
+void	ft_error(int style)
+{
+	if (style == INPUT_ERROR)
+		ft_printf("'./client [PID] [string]'");
+	if (style == PID_ERROR)
+		ft_printf("PID is wrong, Please check again PID!");
+	if (style == KILL_ERROR)
+		ft_printf("Kill command error");
+	exit(EXIT_FAILURE);
+}
+
 void	output_char(void)
 {
 	char	temp_char;
 
-	if (g_state.bit_position == 8)
-	{
-		temp_char = g_state.current_char;
-		write(1, &temp_char, 1);
-		g_state.bit_position = 0;
-		g_state.current_char = 0;
-	}
+	temp_char = g_state.current_char;
+	write(1, &temp_char, 1);
+	g_state.bit_position = 0;
+	g_state.current_char = 0;
 }
 
 void	signal_handler(int signum, siginfo_t *info, void *context)
