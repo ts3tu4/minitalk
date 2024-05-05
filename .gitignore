@@ -57,3 +57,6 @@ dkms.conf
 client
 server
 .github/
+g-client
+g-server
+.vscode/tasks.json

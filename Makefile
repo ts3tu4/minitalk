@@ -30,6 +30,8 @@ $(LIBFT):
 $(PRINTF):
 	$(MAKE) -C $(PRINTF_DIR)
 
+bonus: all
+
 clean:
 	rm -rf $(C_OBJS) $(S_OBJS)
 	$(MAKE) clean -C $(LIBFT_DIR)
@@ -39,7 +41,7 @@ fclean: clean
 	rm -rf $(S_NAME) $(C_NAME)
 	$(MAKE) fclean -C $(LIBFT_DIR)
 	$(MAKE) fclean -C $(PRINTF_DIR)
-re:fclean all
-	
 
-.PHONY: all clean fclean re
+re:fclean all
+
+.PHONY: all clean fclean re bonus
