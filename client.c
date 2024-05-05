@@ -6,13 +6,13 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:36 by mnanke            #+#    #+#             */
-/*   Updated: 2024/05/03 23:33:18 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/05/05 22:36:48 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-volatile sig_atomic_t g_acknowledgement = true;
+volatile sig_atomic_t g_acknowledgement = false;
 
 void	handle_acknowledgement(int sig)
 {
@@ -45,9 +45,9 @@ void	send_signal(int s_pid, char c)
 			sig = SIGUSR1;
 		else
 			sig = SIGUSR2;
+		g_acknowledgement = false;
 		if (kill(s_pid, sig) == -1)
 			ft_error(KILL_ERROR);
-		g_acknowledgement = false;
 		while (g_acknowledgement == false)
 			usleep(50);
 		i--;
@@ -86,7 +86,7 @@ int	main(int argc, char **argv)
 	len = ft_strlen(argv[2]);
 	signal(SIGUSR1, handle_acknowledgement);
 	i = 0;
-	while (i < len)
+	while (i <= len)
 	{
 		send_signal(i_pid, argv[2][i]);
 		i++;
