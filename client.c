@@ -6,13 +6,13 @@
 /*   By: mnanke <mnanke@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 14:52:36 by mnanke            #+#    #+#             */
-/*   Updated: 2024/05/05 22:36:48 by mnanke           ###   ########.fr       */
+/*   Updated: 2024/05/06 14:20:44 by mnanke           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-volatile sig_atomic_t g_acknowledgement = false;
+volatile sig_atomic_t	g_acknowledgement = false;
 
 void	handle_acknowledgement(int sig)
 {
